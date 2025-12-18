@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - CARDOT Maël - 2GT2</title>
+    <style>
+        /* Réinitialisation de tous les éléments */
+        * {
+            margin: 0;              /* Supprime les marges extérieures */
+            padding: 0;             /* Supprime les marges intérieures */
+            box-sizing: border-box; /* Inclut les bordures dans la taille totale */
+        }
+        
+        /* Style du corps de la page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police de caractères */
+            background: #8B0000;                                         /* Couleur de fond rouge foncé */
+            min-height: 100vh;                                          /* Hauteur minimale = 100% de l'écran */
+            color: white;                                              /* Couleur du texte en blanc */
+        }
+        
+        /* Style de l'en-tête */
+        header {
+            background: rgba(0, 0, 0, 0.95);                 /* Fond noir avec transparence */
+            padding: 20px 0;                                /* Espacement intérieur haut/bas */
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3); /* Ombre dorée */
+            border-bottom: 2px solid #FFD700;             /* Bordure dorée en bas */
+        }
+        
+        nav {
+            max-width: 1200px;                 /* Largeur maximale */
+            margin: 0 auto;                   /* Centrage horizontal */
+            display: flex;                   /* Disposition flexible */
+            justify-content: space-between; /* Espacement entre éléments */
+            align-items: center;           /* Alignement vertical centré */
+            padding: 0 20px;              /* Espacement intérieur gauche/droite */
+        }
+        
+        .logo {
+            font-size: 28px;        /* Taille de la police */
+            font-weight: bold;      /* Texte en gras */
+            color: #FFD700;         /* Couleur dorée */
+        }
+        
+        .liens-navigation {
+            display: flex;          /* Disposition flexible en ligne */
+            gap: 30px;              /* Espacement entre les liens */
+            list-style: none;       /* Supprime les puces de liste */
+        }
+        
+        .liens-navigation a {
+            text-decoration: none;  /* Supprime le soulignement */
+            color: white;           /* Couleur blanche */
+            font-weight: 500;       /* Épaisseur moyenne */
+            transition: color 0.3s; /* Transition fluide de couleur */
+        }
+        
+        /* Style des liens au survol de la souris */
+        .liens-navigation a:hover {
+            color: #FFD700;         /* Change en couleur dorée */
+        }
+        
+        .conteneur {
+            max-width: 1200px;      /* Largeur maximale */
+            margin: 0 auto;         /* Centrage horizontal */
+            padding: 40px 20px;     /* Espacement intérieur */
+        }
+        
+        /* Section héros (bannière principale) */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #8B0000 100%); /* Dégradé noir vers rouge */
+            border-radius: 20px;                                          /* Coins arrondis */
+            padding: 60px 40px;                                          /* Espacement intérieur */
+            text-align: center;                                         /* Texte centré */
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);            /* Ombre dorée */
+            margin-bottom: 40px;                                      /* Espacement en bas */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+        
+        h1 {
+            font-size: 48px;                                /* Taille de la police */
+            color: #FFD700;                                /* Couleur dorée */
+            margin-bottom: 20px;                          /* Espacement en bas */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+        }
+        
+        .section-contenu {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); /* Dégradé de noir */
+            border-radius: 20px;                                          /* Coins arrondis */
+            padding: 40px;                                               /* Espacement intérieur */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);                    /* Ombre légère */
+            border: 2px solid #FFD700;                                 /* Bordure dorée */
+        }
+        
+        h2 {
+            color: #FFD700;                                 /* Couleur dorée */
+            font-size: 32px;                               /* Taille de la police */
+            margin-bottom: 20px;                          /* Espacement en bas */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+        }
+        
+        p {
+            line-height: 1.8;       /* Hauteur de ligne (espacement vertical) */
+            color: white;           /* Couleur blanche */
+            margin-bottom: 15px;    /* Espacement en bas */
+            font-size: 16px;        /* Taille de la police */
+        }
+        
+        .grille-avantages {
+            display: grid;                                                /* Disposition en grille */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives */
+            gap: 20px;                                                  /* Espacement entre les cartes */
+            margin-top: 30px;                                          /* Espacement en haut */
+        }
+        
+        .carte-avantage {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%); /* Dégradé rouge */
+            color: white;                                                 /* Couleur du texte */
+            padding: 30px;                                               /* Espacement intérieur */
+            border-radius: 15px;                                        /* Coins arrondis */
+            text-align: center;                                        /* Texte centré */
+            transition: transform 0.3s;                               /* Transition d'animation */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);          /* Ombre dorée */
+        }
+        
+        /* Animation au survol de la carte */
+        .carte-avantage:hover {
+            transform: translateY(-5px); /* Déplacement vers le haut de 5 pixels */
+        }
+        
+        .carte-avantage h3 {
+            margin-bottom: 10px;    /* Espacement en bas */
+            font-size: 22px;        /* Taille de la police */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏋️ Calisthénie</div>
+            <ul class="liens-navigation">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="figures.html">Figures</a></li>
+                <li><a href="equipement.html">Équipement</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="conteneur">
+        <div class="hero">
+            <h1>Bienvenue dans le monde de la Calisthénie!</h1>
+           <div style="text-align: center; margin: 30px 0;">
+    <br>
+    <a href="https://youtu.be/8XZtD2UKv4k?si=nX8lsbiz3sdZ9j75" target="_blank" style="position: relative; display: inline-block;">
+        <img 
+            src="calisthenics-gym.jpg" 
+            alt="Vidéo Calisthénie"
+            width="900"
+            height="550"
+            style="border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 80px; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.8);">▶</div>
+    </a>
+    <p style="margin-top: 10px; color: white;">Cliquez pour voir la vidéo</p>
+</div>
+
+        <div class="section-contenu">
+            <h2>Qu'est-ce que la Calisthénie ?</h2>
+            
+            <p>La Calisthénie aussi appelée Street workout est une forme d'entraînement physique qui utilise uniquement le poids du corps pour développer la force, l'endurance, la flexibilité et la coordination. Le terme vient du grec "kalos" (beauté) et "sthenos" (force), reflétant parfaitement la philosophie de cette discipline qui allie esthétique et performance.</p>
+            
+            <p>Contrairement à la musculation traditionnelle avec des poids, la Calisthénie se concentre sur des mouvements fonctionnels qui engagent plusieurs groupes musculaires simultanément. Cette approche permet de développer une force authentique et une maîtrise complète de son corps.</p>
+            
+            <p>Les exercices de base incluent les pompes, les tractions, les dips, les squats et les abdominaux, mais la Calisthénie va bien au-delà avec des figures avancées spectaculaires comme le muscle-up, la planche, le human flag ou encore le front lever.</p>
+           
+            <br>
+
+            <h2>Les avantages de la Calisthénie</h2>
+            
+            <div class="grille-avantages">
+                <div class="carte-avantage">
+                    <h3> Force Fonctionnelle</h3>
+                    <p>Développez une force utilisable dans la vie quotidienne</p>
+                </div>
+                <div class="carte-avantage">
+                    <h3> Accessible partout</h3>
+                    <p>Entraînez-vous n'importe où, sans équipement coûteux</p>
+                </div>
+                <div class="carte-avantage">
+                    <h3> Contrôle du corps</h3>
+                    <p>Améliorez votre proprioception et coordination</p>
+                </div>
+
+                <br>
+
+                <div class="carte-avantage">
+                    <h3> Condition physique</h3>
+                    <p>Combinez force, endurance et flexibilité</p>
+                </div>
+            </div>
+
+            <br><br>
+
+
+            <h2>Pour qui est la Calisthénie ?</h2>
+            
+            <p>La Calisthénie convient à tous les niveaux, des débutants complets aux athlètes confirmés. Chaque exercice peut être adapté en fonction de votre niveau actuel, avec des progressions et des régressions appropriées. Que vous cherchiez à vous remettre en forme, à développer votre force ou à maîtriser des figures impressionnantes, la Calisthénie offre un chemin d'évolution continu et gratifiant.</p>
+        </div>
+    </div>
+
+</body>
+</html>

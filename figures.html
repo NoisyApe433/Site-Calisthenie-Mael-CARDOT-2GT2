@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figures - CARDOT Maël - 2GT2</title>
+    <style>
+        /* Réinitialisation de tous les éléments */
+        * {
+            margin: 0;              /* Supprime les marges extérieures */
+            padding: 0;             /* Supprime les marges intérieures */
+            box-sizing: border-box; /* Inclut les bordures dans la taille totale */
+        }
+        
+        /* Style du corps de la page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police de caractères */
+            background: #8B0000;                                         /* Couleur de fond rouge foncé */
+            min-height: 100vh;                                          /* Hauteur minimale = 100% de l'écran */
+            color: white;                                              /* Couleur du texte en blanc */
+        }
+        
+        /* Style de l'en-tête */
+        header {
+            background: rgba(0, 0, 0, 0.95);                 /* Fond noir avec transparence */
+            padding: 20px 0;                                /* Espacement intérieur haut/bas */
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3); /* Ombre dorée */
+            border-bottom: 2px solid #FFD700;             /* Bordure dorée en bas */
+        }
+        
+        nav {
+            max-width: 1200px;                 /* Largeur maximale */
+            margin: 0 auto;                   /* Centrage horizontal */
+            display: flex;                   /* Disposition flexible */
+            justify-content: space-between; /* Espacement entre éléments */
+            align-items: center;           /* Alignement vertical centré */
+            padding: 0 20px;              /* Espacement intérieur gauche/droite */
+        }
+        
+        /* Style du logo */
+        .logo {
+            font-size: 28px;        /* Taille de la police */
+            font-weight: bold;      /* Texte en gras */
+            color: #FFD700;         /* Couleur dorée */
+        }
+        
+        /* Style de la liste de liens */
+        .nav-links {
+            display: flex;          /* Disposition flexible en ligne */
+            gap: 30px;              /* Espacement entre les liens */
+            list-style: none;       /* Supprime les puces de liste */
+        }
+        
+        /* Style des liens de navigation */
+        .nav-links a {
+            text-decoration: none;  /* Supprime le soulignement */
+            color: white;           /* Couleur blanche */
+            font-weight: 500;       /* Épaisseur moyenne */
+            transition: color 0.3s; /* Transition fluide de couleur */
+        }
+        
+        /* Style des liens au survol de la souris */
+        .nav-links a:hover {
+            color: #FFD700;         /* Change en couleur dorée */
+        }
+        
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;      /* Largeur maximale */
+            margin: 0 auto;         /* Centrage horizontal */
+            padding: 40px 20px;     /* Espacement intérieur */
+        }
+        
+        /* En-tête de page */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #8B0000 100%); /* Dégradé noir vers rouge */
+            border-radius: 20px;                                          /* Coins arrondis */
+            padding: 40px;                                               /* Espacement intérieur */
+            text-align: center;                                         /* Texte centré */
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);            /* Ombre dorée */
+            margin-bottom: 40px;                                      /* Espacement en bas */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+        
+        /* Style du titre principal (H1) */
+        h1 {
+            font-size: 42px;                                /* Taille de la police */
+            color: #FFD700;                                /* Couleur dorée */
+            margin-bottom: 15px;                          /* Espacement en bas */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+        }
+        
+        /* Style du texte d'introduction */
+        .intro {
+            font-size: 18px;        /* Taille de la police */
+            color: white;           /* Couleur blanche */
+        }
+        
+        /* Section de difficulté (débutant, intermédiaire, avancé) */
+        .difficulty-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); /* Dégradé de noir */
+            border-radius: 20px;                                          /* Coins arrondis */
+            padding: 40px;                                               /* Espacement intérieur */
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);             /* Ombre dorée */
+            margin-bottom: 30px;                                       /* Espacement en bas */
+            border: 2px solid #FFD700;                                /* Bordure dorée */
+        }
+        
+        /* Style des titres de niveau 2 (H2) */
+        h2 {
+            color: #FFD700;                                    /* Couleur dorée */
+            font-size: 32px;                                  /* Taille de la police */
+            margin-bottom: 20px;                             /* Espacement en bas */
+            display: flex;                                  /* Disposition flexible */
+            align-items: center;                           /* Alignement vertical centré */
+            gap: 10px;                                    /* Espacement entre les éléments */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre du texte */
+        }
+        
+        /* Badge de difficulté (débutant, intermédiaire, avancé) */
+        .difficulty-badge {
+            display: inline-block;  /* Affichage en ligne avec dimensions */
+            padding: 5px 15px;      /* Espacement intérieur */
+            border-radius: 20px;    /* Coins très arrondis (forme de pilule) */
+            font-size: 14px;        /* Taille de la police */
+            font-weight: bold;      /* Texte en gras */
+        }
+        
+        /* Badge vert pour niveau débutant */
+        .beginner {
+            background: #4ade80;    /* Fond vert clair */
+            color: white;           /* Texte blanc */
+        }
+        
+        /* Badge orange pour niveau intermédiaire */
+        .intermediate {
+            background: #fb923c;    /* Fond orange */
+            color: white;           /* Texte blanc */
+        }
+        
+        /* Badge rouge pour niveau avancé */
+        .advanced {
+            background: #ef4444;    /* Fond rouge */
+            color: white;           /* Texte blanc */
+        }
+        
+        /* Paragraphes dans les sections de difficulté */
+        .difficulty-section > p {
+            color: white;           /* Couleur du texte en blanc */
+        }
+        
+        /* Liste des figures */
+        .figures-list {
+            list-style: none;       /* Supprime les puces de liste */
+            margin-top: 20px;       /* Espacement en haut */
+        }
+        
+        /* Carte individuelle de figure */
+        .figure-item {
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%); /* Dégradé gris foncé */
+            padding: 20px;                                                /* Espacement intérieur */
+            margin-bottom: 15px;                                         /* Espacement en bas */
+            border-radius: 10px;                                        /* Coins arrondis */
+            border-left: 4px solid #FFD700;                            /* Bordure gauche dorée */
+            transition: transform 0.3s;                               /* Transition d'animation */
+        }
+        
+        /* Animation au survol de la carte de figure */
+        .figure-item:hover {
+            transform: translateX(5px); /* Déplacement vers la droite de 5 pixels */
+        }
+        
+        /* Nom de la figure */
+        .figure-name {
+            font-size: 20px;        /* Taille de la police */
+            font-weight: bold;      /* Texte en gras */
+            color: #FFD700;         /* Couleur dorée */
+            margin-bottom: 8px;     /* Espacement en bas */
+        }
+        
+        /* Description de la figure */
+        .figure-description {
+            color: white;           /* Couleur blanche */
+            line-height: 1.6;       /* Hauteur de ligne (espacement vertical) */
+        }
+        
+        /* Boîte de conseils */
+        .tips-box {
+            background: linear-gradient(135deg, #CD853F 0%, #5C4033 100%); /* Dégradé brun/doré */
+            color: white;                                                 /* Couleur du texte */
+            padding: 30px;                                               /* Espacement intérieur */
+            border-radius: 15px;                                        /* Coins arrondis */
+            margin-top: 30px;                                          /* Espacement en haut */
+            border: 2px solid #FFD700;                                /* Bordure dorée */
+            box-shadow: #A52A2A;                                     /* Ombre marron */
+        }
+        
+        /* Titre dans la boîte de conseils */
+        .tips-box h3 {
+            font-size: 24px;        /* Taille de la police */
+            margin-bottom: 15px;    /* Espacement en bas */
+            color: #FFD700;         /* Couleur dorée */
+        }
+        
+        /* Liste dans la boîte de conseils */
+        .tips-box ul {
+            list-style-position: inside; /* Puces à l'intérieur du bloc */
+            line-height: 1.8;           /* Hauteur de ligne */
+        }
+       
+        /* Lien de retour à l'accueil */
+        .lien-de-retour {
+            display: inline-block;                                            /* Affichage en ligne avec dimensions */
+            margin-top: 20px;                                                /* Espacement en haut */
+            padding: 12px 30px;                                             /* Espacement intérieur */
+            background: linear-gradient(135deg, #A52A2A 0%, #000000 100%); /* Dégradé marron vers noir */
+            color: white;                                                 /* Couleur du texte */
+            text-decoration: none;                                       /* Supprime le soulignement */
+            border-radius: 25px;                                        /* Coins très arrondis */
+            font-weight: 500;                                          /* Épaisseur moyenne */
+            transition: background 0.3s;                              /* Transition du fond */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+
+        /* Bouton vidéo pour niveau difficile (rouge) */
+        .video-difficile-lien {
+            display: inline-block;                                            /* Affichage en ligne avec dimensions */
+            margin-top: 20px;                                                /* Espacement en haut */
+            padding: 12px 30px;                                             /* Espacement intérieur */
+            background: linear-gradient(135deg, #ff0000 0%, #8B0000 100%); /* Dégradé rouge vif vers rouge foncé */
+            color: white;                                                 /* Couleur du texte */
+            text-decoration: none;                                       /* Supprime le soulignement */
+            border-radius: 25px;                                        /* Coins très arrondis */
+            font-weight: 500;                                          /* Épaisseur moyenne */
+            transition: background 0.3s;                              /* Transition du fond */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+
+        /* Bouton vidéo pour niveau moyen (orange) */
+        .video-moyenne-lien {
+            display: inline-block;                                            /* Affichage en ligne avec dimensions */
+            margin-top: 20px;                                                /* Espacement en haut */
+            padding: 12px 30px;                                             /* Espacement intérieur */
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%); /* Dégradé orange vers rouge-orange */
+            color: white;                                                 /* Couleur du texte */
+            text-decoration: none;                                       /* Supprime le soulignement */
+            border-radius: 25px;                                        /* Coins très arrondis */
+            font-weight: 500;                                          /* Épaisseur moyenne */
+            transition: background 0.3s;                              /* Transition du fond */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+
+        /* Bouton vidéo pour niveau facile (vert) */
+        .video-facile-lien {
+            display: inline-block;                                            /* Affichage en ligne avec dimensions */
+            margin-top: 20px;                                                /* Espacement en haut */
+            padding: 12px 30px;                                             /* Espacement intérieur */
+            background: linear-gradient(135deg, #90EE90 0%, #006400 100%); /* Dégradé vert clair vers vert foncé */
+            color: white;                                                 /* Couleur du texte */
+            text-decoration: none;                                       /* Supprime le soulignement */
+            border-radius: 25px;                                        /* Coins très arrondis */
+            font-weight: 500;                                          /* Épaisseur moyenne */
+            transition: background 0.3s;                              /* Transition du fond */
+            border: 2px solid #FFD700;                               /* Bordure dorée */
+        }
+
+        /* Animation au survol du lien de retour */
+        .lien-de-retour:hover {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%); /* Change le dégradé au survol */
+            transform: scale(1.05);                                       /* Agrandissement de 5% */
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏋️ Calisthénie</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="figures.html">Figures</a></li>
+                <li><a href="equipement.html">Équipement</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Les Figures de Calisthénie</h1>
+            <p class="intro">Découvrez les mouvements emblématiques et leur progression</p>
+        </div>
+
+        <div class="difficulty-section">
+            <h2><span class="difficulty-badge beginner">Débutant</span> Figures de base</h2>
+            <p>Ces figures sont accessibles à tous et constituent les fondations de la Calisthénie. Maîtrisez-les avant de progresser vers des mouvements plus complexes.</p>
+            
+            <ul class="figures-list">
+                <li class="figure-item">
+                    <div class="figure-name">🟢 Push-ups (Pompes)</div>
+                    <img src="Figures-pompes.jpeg" width="300" height="200">
+                    <div class="figure-description">Exercice fondamental qui renforce les pectoraux, les épaules et les triceps. Gardez le corps aligné et descendez jusqu'à ce que votre poitrine touche presque le sol.</div>
+                    <a href="https://youtu.be/jgJHg3rAOVg?si=rWzYW4MV9_DnR__e" class="video-facile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🟢 Pull-ups (Tractions)</div>
+                    <img src="Tractions.jpg" width="300" height="200">
+                    <div class="figure-description">Mouvement essentiel pour le dos et les biceps. Partez d'une position bras tendus et montez jusqu'à ce que votre menton dépasse la barre.</div>
+                    <a href="https://youtu.be/LG5VgIty4VU?si=478fX2Gzq_k1-Qc7" class="video-facile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🟢 Dips (Répulsions)</div>
+                    <img src="Dips.jpg" width="300" height="200">
+                    <div class="figure-description">Exercice puissant pour les triceps et la poitrine. Descendez en pliant les coudes jusqu'à 90 degrés, puis repoussez.</div>
+                    <a href="https://youtu.be/mrTfuhTmesM?si=3TkAh4NS8p4BtpIF" class="video-facile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🟢 Squats (Flexions)</div>
+                    <img src="Squats.jpg" width="300" height="200">
+                    <div class="figure-description">Mouvement de base pour les jambes. Descendez comme si vous vous asseyiez, gardez le dos droit et les genoux alignés avec les pieds.</div>
+                    <a href="https://youtu.be/TXXIQ0QNH4o?si=63rT9zeOT531q0vo" class="video-facile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="difficulty-section">
+            <h2><span class="difficulty-badge intermediate">Intermédiaire</span> Figures statiques et dynamiques</h2>
+            <p>Ces mouvements demandent plusieurs mois d'entraînement régulier et une bonne maîtrise des bases.</p>
+            
+            <ul class="figures-list">
+                <li class="figure-item">
+                    <div class="figure-name">🔶 Muscle-up</div>
+                    <img src="Muscle up.jpg" width="300" height="200">
+                    <div class="figure-description">Mouvement explosif combinant traction et dips. Nécessite une grande force et une bonne technique pour passer au-dessus de la barre.</div>
+                    <a href="https://youtu.be/1RzMOfa5sWE?si=KO8_xbct33ySrNto" class="video-moyenne-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🔶 L-sit (Position en L)</div>
+                    <img src="L-sit.jpg" width="300" height="200">
+                    <div class="figure-description">Figure statique où vous maintenez vos jambes tendues à l'horizontale en restant suspendu ou en appui. Renforce intensément les abdominaux et les fléchisseurs de hanches.</div>
+                    <a href="https://youtu.be/aEld8esBoqg?si=vhMit_TIDOBKtZUW" class="video-moyenne-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🔶 Handstand Push-ups (Pompes en équilibre)</div>
+                    <img src="Handstand-push-ups.jpeg" width="300" height="200">
+                    <div class="figure-description">Pompes réalisées en position d'équilibre sur les mains, contre un mur ou en libre. Développe une force exceptionnelle des épaules.</div>
+                    <a href="https://youtu.be/SLpCoMZwTCc?si=V39JWt3F1VyWb92f" class="video-moyenne-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">🔶 Pistol Squats (Squat sur une jambe)</div>
+                    <img src="Pistols-squats.jpeg" width="300" height="200">
+                    <div class="figure-description">Flexion complète sur une jambe, l'autre tendue devant. Demande force, équilibre et mobilité.</div>
+                    <a href="https://youtu.be/pM9bIRfFc3E?si=IDy0Zcq7utJ2hdqc" class="video-moyenne-lien">Tuto pour réaliser cette figure</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="difficulty-section">
+            <h2><span class="difficulty-badge advanced">Avancé</span> Figures d'élite</h2>
+            <p>Ces mouvements représentent le sommet de la Calisthénie et nécessitent des années d'entraînement dédié.</p>
+            
+            <ul class="figures-list">
+                <li class="figure-item">
+                    <div class="figure-name">♦️ Front Lever (Drapeau avant)</div>
+                    <img src="Front-lever.jpg" width="300" height="200">
+                    <div class="figure-description">Position horizontale suspendu à une barre, corps parfaitement aligné et parallèle au sol. Requiert une force colossale du dos et des abdominaux.</div>
+                    <a href="https://youtu.be/Qf69D1uM9G8?si=_z8Xz27G2_JWathd" class="video-difficile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">♦️ Human Flag (Drapeau humain)</div>
+                    <img src="Human-flag.jpg" width="300" height="200">
+                    <div class="figure-description">Corps horizontal maintenu latéralement sur une barre verticale. Figure spectaculaire nécessitant une force exceptionnelle des obliques et des épaules.</div>
+                    <a href="https://youtu.be/lV0AXlob_5U?si=sOLZjOwb5NBpFmU2" class="video-difficile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">♦️ Full-Planche (Planche)</div>
+                    <img src="Full-planche.jpg" width="300" height="200">
+                    <div class="figure-description">Équilibre sur les mains avec le corps parallèle au sol, bras tendus. La figure reine de la Calisthénie en terme de difficulté.</div>
+                    <a href="https://youtu.be/CMaX_UhDml0?si=fQ3Z8xlGtZMQQLTP" class="video-difficile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+                <li class="figure-item">
+                    <div class="figure-name">♦️ One Arm Pull-up (Traction à un bras)</div>
+                    <img src="One-arm-pull-up.jpg" width="300" height="200">
+                    <div class="figure-description">Traction réalisée avec un seul bras. Démontre une force et un contrôle exceptionnels.</div>
+                    <a href="https://youtu.be/l0-JTrz1oWQ?si=93LfQG3kcXHToDj1" class="video-difficile-lien">Tuto pour réaliser cette figure</a>
+                </li>
+            </ul>
+
+            <div class="tips-box">
+                <h3>💡 Conseils pour progresser</h3>
+                <ul>
+                    <li>Soyez patient : chaque figure demande du temps pour être maîtrisée</li>
+                    <li>Travaillez les progressions : décomposez les mouvements complexes en étapes plus simples</li>
+                    <li>Échauffez-vous toujours avant l'entraînement pour éviter les blessures</li>
+                    <li>La régularité est plus importante que l'intensité : entraînez-vous 3-4 fois par semaine</li>
+                    <li>Filmez-vous pour corriger votre technique</li>
+                    <li>Travaillez votre mobilité en parallèle de la force</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="lien-de-retour">← Retour à l'accueil</a>
+        </div>
+    </div>
+
+</body>
+</html>

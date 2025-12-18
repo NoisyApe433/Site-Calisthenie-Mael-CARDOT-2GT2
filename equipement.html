@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipement - CARDOT Maël - 2GT2</title>
+    <style>
+        /* Réinitialisation de tous les éléments */
+        * {
+            margin: 0;                 /* Marge extérieure nulle */
+            padding: 0;               /* Remplissage intérieur nul */
+            box-sizing: border-box;  /* Calcul de taille incluant bordures et remplissage */
+        }
+        
+        /* Corps de la page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Famille de polices */
+            background: #8B0000;                                          /* Couleur d'arrière-plan rouge foncé */
+            min-height: 100vh;                                           /* Hauteur minimale de 100% de la fenêtre */
+            color: white;                                               /* Couleur du texte blanc */
+        }
+        
+        /* En-tête de la page */
+        header {
+            background: rgba(0, 0, 0, 0.95);                  /* Arrière-plan noir semi-transparent */
+            padding: 20px 0;                                 /* Remplissage haut/bas de 20px */
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);  /* Ombre portée dorée */
+            border-bottom: 2px solid #FFD700;              /* Bordure inférieure dorée de 2px */
+        }
+        
+        nav {
+            max-width: 1200px;                  /* Largeur maximale de 1200px */
+            margin: 0 auto;                    /* Centrage horizontal automatique */
+            display: flex;                    /* Affichage flexible pour alignement */
+            justify-content: space-between;  /* Espacement maximal entre les éléments */
+            align-items: center;            /* Alignement vertical centré */
+            padding: 0 20px;               /* Remplissage gauche/droite de 20px */
+        }
+        
+        .logo {
+            font-size: 28px;     /* Taille de police de 28px */
+            font-weight: bold;  /* Texte en gras */
+            color: #FFD700;    /* Couleur dorée */
+        }
+        
+        .liens-navigation {
+            display: flex;       /* Affichage flexible */
+            gap: 30px;          /* Espacement de 30px entre les éléments */
+            list-style: none;  /* Suppression des puces de liste */
+        }
+        
+        .liens-navigation a {
+            text-decoration: none;      /* Suppression du soulignement */
+            color: white;              /* Couleur blanche */
+            font-weight: 500;         /* Poids de police moyen */
+            transition: color 0.3s;  /* Transition douce de la couleur en 0.3s */
+        }
+        
+        /* Liens de navigation au survol */
+        .liens-navigation a:hover {
+            color: #FFD700;  /* Couleur dorée au survol */
+        }
+        
+        .conteneur {
+            max-width: 1200px;     /* Largeur maximale de 1200px */
+            margin: 0 auto;       /* Centrage horizontal */
+            padding: 40px 20px;  /* Remplissage de 40px haut/bas et 20px gauche/droite */
+        }
+        
+        /* En-tête de page */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #8B0000 100%);  /* Dégradé diagonal noir vers rouge */
+            border-radius: 20px;                                           /* Coins arrondis de 20px */
+            padding: 40px;                                                /* Remplissage de 40px tout autour */
+            text-align: center;                                          /* Texte centré */
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);             /* Ombre portée dorée diffuse */
+            margin-bottom: 40px;                                       /* Marge inférieure de 40px */
+            border: 2px solid #FFD700;                                /* Bordure dorée de 2px */
+        }
+        
+        h1 {
+            font-size: 42px;                                 /* Taille de police de 42px */
+            color: #FFD700;                                 /* Couleur dorée */
+            margin-bottom: 15px;                           /* Marge inférieure de 15px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Ombre du texte noire */
+        }
+        
+        /* Texte d'introduction */
+        .intro {
+            font-size: 18px;  /* Taille de police de 18px */
+            color: white;    /* Couleur blanche */
+        }
+        
+        .section-categorie {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);  /* Dégradé diagonal gris foncé */
+            border-radius: 20px;                                           /* Coins arrondis de 20px */
+            padding: 40px;                                                /* Remplissage de 40px */
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);              /* Ombre portée dorée */
+            margin-bottom: 30px;                                        /* Marge inférieure de 30px */
+            border: 2px solid #FFD700;                                 /* Bordure dorée de 2px */
+        }
+        
+        h2 {
+            color: #FFD700;                                  /* Couleur dorée */
+            font-size: 32px;                                /* Taille de police de 32px */
+            margin-bottom: 20px;                           /* Marge inférieure de 20px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Ombre du texte noire */
+        }
+        
+        p {
+            line-height: 1.8;       /* Hauteur de ligne de 1.8 fois la taille de police */
+            color: white;          /* Couleur blanche */
+            margin-bottom: 20px;  /* Marge inférieure de 20px */
+        }
+        
+        .grille-équipements {
+            display: grid;                                                 /* Affichage en grille */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Colonnes automatiques min 300px */
+            gap: 25px;                                                   /* Espacement de 25px entre les éléments */
+            margin-top: 30px;                                           /* Marge supérieure de 30px */
+        }
+        
+        .carte-équipement {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);  /* Dégradé diagonal gris */
+            padding: 25px;                                                 /* Remplissage de 25px */
+            border-radius: 15px;                                          /* Coins arrondis de 15px */
+            border: 2px solid #FFD700;                                   /* Bordure dorée de 2px */
+            transition: all 0.3s;                                       /* Transition douce de toutes les propriétés en 0.3s */
+        }
+        
+        .carte-équipement:hover {
+            transform: translateY(-5px);                      /* Déplacement vers le haut de 5px */
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);  /* Ombre portée dorée intensifiée */
+            border-color: #DC143C;                          /* Bordure rouge cramoisi */
+        }
+        
+        .nom-équipement {
+            font-size: 22px;         /* Taille de police de 22px */
+            font-weight: bold;      /* Texte en gras */
+            color: #FFD700;        /* Couleur dorée */
+            margin-bottom: 10px;  /* Marge inférieure de 10px */
+        }
+        
+        .prix-équipement {
+            color: #DC143C;          /* Couleur rouge cramoisi */
+            font-weight: bold;      /* Texte en gras */
+            font-size: 20px;       /* Taille de police de 20px */
+            margin-bottom: 10px;  /* Marge inférieure de 10px */
+        }
+        
+        .description-équipement {
+            color: white;           /* Couleur blanche */
+            line-height: 1.6;      /* Hauteur de ligne de 1.6 */
+            margin-bottom: 15px;  /* Marge inférieure de 15px */
+        }
+        
+        .caractéristiques-équipement {
+            background: rgba(0, 0, 0, 0.5); /* Arrière-plan noir semi-transparent */
+            padding: 15px;                 /* Remplissage de 15px */
+            border-radius: 8px;           /* Coins arrondis de 8px */
+            margin-top: 10px;            /* Marge supérieure de 10px */
+            border: 1px solid #FFD700;  /* Bordure dorée de 1px */
+        }
+        
+        .caractéristiques-équipement h4 {
+            color: #FFD700;        /* Couleur dorée */
+            font-size: 16px;      /* Taille de police de 16px */
+            margin-bottom: 8px;  /* Marge inférieure de 8px */
+        }
+        
+        .caractéristiques-équipement ul {
+            list-style-position: inside;  /* Puces à l'intérieur du bloc */
+            color: white;                /* Couleur blanche */
+            font-size: 14px;            /* Taille de police de 14px */
+            line-height: 1.8;          /* Hauteur de ligne de 1.8 */
+        }
+        
+        .bouton-achat {
+            display: inline-block;                                             /* Affichage en ligne avec dimensions */
+            margin-top: 15px;                                                 /* Marge supérieure de 15px */
+            padding: 10px 25px;                                              /* Remplissage de 10px haut/bas et 25px gauche/droite */
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);  /* Dégradé rouge */
+            color: white;                                                  /* Couleur blanche */
+            text-decoration: none;                                        /* Suppression du soulignement */
+            border-radius: 20px;                                         /* Coins arrondis de 20px */
+            font-weight: 500;                                           /* Poids de police moyen */
+            transition: all 0.3s;                                      /* Transition douce de toutes les propriétés */
+            border: 2px solid #FFD700;                                /* Bordure dorée de 2px */
+        }
+        
+        /* Bouton d'achat au survol */
+        
+        .bouton-achat:hover {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);  /* Dégradé inversé */
+            transform: scale(1.05);                                        /* Agrandissement de 5% */
+        }
+        
+        /* Boîte de recommandation */
+        .boite-de-recommandation {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);  /* Dégradé rouge */
+            color: white;                                                  /* Couleur blanche */
+            padding: 30px;                                                /* Remplissage de 30px */
+            border-radius: 15px;                                         /* Coins arrondis de 15px */
+            margin-top: 30px;                                           /* Marge supérieure de 30px */
+            border: 2px solid #FFD700;                                 /* Bordure dorée de 2px */
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);            /* Ombre portée dorée */
+        }
+        
+        
+        .boite-de-recommandation h3 {
+            font-size: 24px;       /* Taille de police de 24px */
+            margin-bottom: 15px;  /* Marge inférieure de 15px */
+            color: #FFD700;      /* Couleur dorée */
+        }
+        
+        .boite-de-recommandation ol {
+            list-style-position: inside;  /* Numéros à l'intérieur du bloc */
+            line-height: 2;              /* Hauteur de ligne double */
+            font-size: 16px;            /* Taille de police de 16px */
+        }
+        
+       
+        .lien-de-retour {
+            display: inline-block;                                             /* Affichage en ligne avec dimensions */
+            margin-top: 20px;                                                 /* Marge supérieure de 20px */
+            padding: 12px 30px;                                              /* Remplissage de 12px haut/bas et 30px gauche/droite */
+            background: linear-gradient(135deg, #A52A2A 0%, #000000 100%);  /* Dégradé brun vers noir */
+            color: white;                                                  /* Couleur blanche */
+            text-decoration: none;                                        /* Suppression du soulignement */
+            border-radius: 25px;                                         /* Coins arrondis de 25px */
+            font-weight: 500;                                           /* Poids de police moyen */
+            transition: all 0.3s;                                      /* Transition douce de toutes les propriétés */
+            border: 2px solid #FFD700;                                /* Bordure dorée de 2px */
+        }
+        
+        /* Lien de retour au survol */
+        .lien-de-retour:hover {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);  /* Dégradé rouge */
+            transform: scale(1.05);                                        /* Agrandissement de 5% */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏋️ Calisthénie</div>
+            <ul class="liens-navigation">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="figures.html">Figures</a></li>
+                <li><a href="equipement.html">Équipement</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="conteneur">
+        <div class="page-header">
+            <h1>Équipement pour la Calisthénie</h1>
+            <p class="intro">Tout ce dont vous avez besoin pour débuter et progresser</p>
+        </div>
+
+        <div class="section-categorie">
+            <h2>Équipement essentiel pour débuter</h2>
+            <p>Pour commencer la calisthénie, vous n'avez besoin que de très peu d'équipement. Voici les éléments indispensables pour s'entraîner chez soi ou en extérieur.</p>
+            
+            <div class="grille-équipements">
+                <div class="carte-équipement">
+                    <img src="Barre-traction.jpg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Barre de traction murale</div>
+                    <div class="prix-équipement">40€ - 90€</div>
+                    <div class="description-équipement">La barre de traction est l'équipement de base indispensable. Elle se fixe au mur ou dans l'encadrement d'une porte et permet de travailler tout le haut du corps.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Supporte jusqu'à 150-200 kg</li>
+                            <li>Installation facile</li>
+                            <li>Plusieurs prises possibles</li>
+                            <li>Gain de place</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+
+                <div class="carte-équipement">
+                    <img src="Barres-paralleles.jpg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Barres parallèles (Dip Station)</div>
+                    <div class="prix-équipement">50€ - 120€</div>
+                    <div class="description-équipement">Idéales pour les dips, les L-sits et de nombreux exercices au poids du corps. Un excellent investissement pour diversifier votre entraînement.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Structure stable et robuste</li>
+                            <li>Hauteur réglable</li>
+                            <li>Polyvalent (dips, L-sit, etc.)</li>
+                            <li>Pliable pour certains modèles</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+
+                <div class="carte-équipement">   
+                    <img src="Tapis-sol.jpg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Tapis gymnastique</div>
+                    <div class="prix-équipement">20€ - 40€</div>
+                    <div class="description-équipement">Essentiel pour les exercices au sol, les étirements et pour protéger vos articulations. Choisissez un modèle suffisamment épais.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Épaisseur 6-10mm recommandée</li>
+                            <li>Antidérapant</li>
+                            <li>Facile à nettoyer</li>
+                            <li>Portable avec sac de transport</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-categorie">
+            <h2>Équipement complémentaire</h2>
+            <p>Pour ceux qui souhaitent aller plus loin et varier leurs entraînements, voici des équipements additionnels très utiles.</p>
+            
+            <div class="grille-équipements">
+                <div class="carte-équipement">
+                    <img src="Elastique.jpg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Bandes élastiques de résistance</div>
+                    <div class="prix-équipement">15€ - 40€</div>
+                    <div class="description-équipement">Parfaites pour les progressions assistées (tractions, muscle-ups) ou pour ajouter de la résistance. Set de plusieurs résistances recommandé.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Différentes résistances disponibles</li>
+                            <li>Aident les progressions</li>
+                            <li>Très portables</li>
+                            <li>Durables si bien entretenues</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+
+                <div class="carte-équipement">
+                    <img src="Magnesie-liquide.jpg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Magnésie liquide</div>
+                    <div class="prix-équipement">8€ - 15€</div>
+                    <div class="description-équipement">Améliore l'adhérence sur les barres et anneaux, surtout quand les mains transpirent. Version liquide plus pratique que la poudre.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Séchage rapide</li>
+                            <li>Moins salissant que la poudre</li>
+                            <li>Longue durée</li>
+                            <li>Format pratique</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+
+                <div class="carte-équipement">
+                    <img src="Gilet-lesté.jpeg" width="300" height="200" style="border-radius: 10px; margin-bottom: 15px;">
+                    <div class="nom-équipement">Gilet lesté</div>
+                    <div class="prix-équipement">40€ - 120€</div>
+                    <div class="description-équipement">Pour progresser une fois les mouvements basiques maîtrisés. Ajoute de la difficulté aux tractions, pompes et dips.</div>
+                    <div class="caractéristiques-équipement">
+                        <h4>Caractéristiques :</h4>
+                        <ul>
+                            <li>Poids ajustable (5-30kg)</li>
+                            <li>Répartition équilibrée</li>
+                            <li>Sangles réglables</li>
+                            <li>Permet la surcharge progressive</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="bouton-achat">Voir les modèles</a>
+                </div>
+            </div>
+
+            <div class="boite-de-recommandation">
+                <h3>💡 Notre recommandation de départ</h3>
+                <p>Si vous débutez avec un budget limité, voici l'ordre d'achat que nous recommandons :</p>
+                <ol>
+                    <li>Barre de traction - C'est La base de la calisthénie</li>
+                    <li>Tapis de sol - Pour les exercices au sol et la sécurité</li>
+                    <li>Bandes élastiques - Pour progresser plus rapidement</li>
+                    <li>Barres parallèles - Dès que vous maîtrisez les bases</li>
+                    <li>Anneaux de gymnastique - Pour varier et progresser davantage</li>
+                </ol>
+                <p style="margin-top: 15px;">Budget total de départ recommandé : 75€ - 150€</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="lien-de-retour">← Retour à l'accueil</a>
+        </div>
+    </div>
+</body>
+</html>
